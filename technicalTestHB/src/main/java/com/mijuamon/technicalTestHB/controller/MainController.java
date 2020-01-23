@@ -6,16 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mijuamon.technicalTestHB.model.Price;
+
 @RestController("MainController")
 public class MainController {
 	
 	@RequestMapping("/price")
-	public void getPrice(@RequestParam(value="itemDescription", required = true)String description,
+	public Price getPrice(@RequestParam(value="itemDescription", required = true)String description,
 						@RequestParam(value="itemPrice", required = true)BigDecimal price,
 						@RequestParam(value="numberOfItems", required = true)Integer numberOfItems,
 						@RequestParam(value="state", required = true)String state)
 	{
-		System.out.println("Hola mundo");
+		return new Price(BigDecimal.valueOf(0.0));
 	}
 	
 	

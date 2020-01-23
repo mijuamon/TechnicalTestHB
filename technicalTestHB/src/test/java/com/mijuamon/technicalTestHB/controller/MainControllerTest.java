@@ -1,6 +1,11 @@
 package com.mijuamon.technicalTestHB.controller;
 
 
+import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.math.BigDecimal;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +22,10 @@ public class MainControllerTest {
 	private MainController controller;
 	
 	@Test
-	public void testGetPrice1()
+	public void testGetPriceRES()
 	{
-		
-	}
-	
-	
-	@Test
-	public void testGetPrice2()
-	{
-		
-	}
+		 assertEquals(BigDecimal.valueOf(1215.0),controller.getPrice("", BigDecimal.valueOf(1000.0), 1, "RES").getPrice());
+
+	}	
 
 }

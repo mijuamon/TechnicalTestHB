@@ -17,11 +17,11 @@
 	<tax>
 		<state>TER</state>
 		<description>Teruel</description>
-		<localTax></localTax>
+		<localTax>0.05</localTax>
 	</tax>
 	<tax>
 		<state>RES</state>
 		<description>Resto</description>
-		<localTax></localTax>
+		<localTax>0.215</localTax>
 	</tax>
 </taxes>
