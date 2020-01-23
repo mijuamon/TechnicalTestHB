@@ -1,0 +1,6 @@
+<specialTaxes>
+	<specialTax>
+		<description>tobacco</description>
+		<tax>0.5</tax>
+	</specialTax>
+</specialTaxes>

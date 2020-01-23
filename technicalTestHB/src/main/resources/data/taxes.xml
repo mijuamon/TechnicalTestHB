@@ -1,0 +1,27 @@
+<taxes>
+	<tax>
+		<state>BAL</state>
+		<description>Baleares</description>
+		<localTax>0.183</localTax>
+	</tax>
+	<tax>
+		<state>CAN</state>
+		<description>Canarias</description>
+		<localTax>0.047</localTax>
+	</tax>
+	<tax>
+		<state>CYN</state>
+		<description>Ceuta y melilla</description>
+		<localTax>0.081</localTax>
+	</tax>
+	<tax>
+		<state>TER</state>
+		<description>Teruel</description>
+		<localTax></localTax>
+	</tax>
+	<tax>
+		<state>RES</state>
+		<description>Resto</description>
+		<localTax></localTax>
+	</tax>
+</taxes>
