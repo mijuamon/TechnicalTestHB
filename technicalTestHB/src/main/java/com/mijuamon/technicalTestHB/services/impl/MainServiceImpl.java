@@ -17,6 +17,12 @@ import com.mijuamon.technicalTestHB.services.MainService;
 public class MainServiceImpl implements MainService {
 	
 	private static final Log LOG = LogFactory.getLog(MainServiceImpl.class);
+	
+	
+
+	public MainServiceImpl() {
+	    super();
+	}
 
 	@Override
 	public BigDecimal calculateTotalAmount(String description, BigDecimal price, Integer numberOfItems, String state) {

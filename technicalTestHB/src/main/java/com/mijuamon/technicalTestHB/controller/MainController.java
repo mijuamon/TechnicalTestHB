@@ -17,9 +17,26 @@ public class MainController {
 	
 	@Autowired
 	@Qualifier("mainService")
-	MainService service;
+	MainService service;	
+		
 	
 	
+	
+	public MainController() {
+	    super();
+	}
+
+
+
+
+	public MainController(MainService service) {
+	    super();
+	    this.service = service;
+	}
+
+
+
+
 	@RequestMapping(path="/price", method = RequestMethod.GET)
 	public Price getPrice(@RequestParam(value="itemDescription", required = true)String description,
 						@RequestParam(value="itemPrice", required = true)BigDecimal price,

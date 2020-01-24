@@ -5,15 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 
-import org.apache.catalina.core.ApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.mijuamon.technicalTestHB.services.impl.MainServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -30,6 +29,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice1()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "RES").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(607.5);
 	    assertEquals(true,received.compareTo(expected)==0);
@@ -43,6 +43,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice2()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(1500.0), 1, "BAL").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(1721.265);
 	    assertEquals(true,received.compareTo(expected)==0);	    
@@ -55,6 +56,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice3()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(3000.0), 2, "CAN").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(5339.7);
 	    assertEquals(true,received.compareTo(expected)==0);
@@ -68,6 +70,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice4()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(1900.0), 4, "CYN").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(6654.636);
 	    assertEquals(true,received.compareTo(expected)==0);
@@ -81,6 +84,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice5()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(12000.0), 1, "TER").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(9450.0);
 	    assertEquals(true,received.compareTo(expected)==0);
@@ -94,6 +98,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPriceSpecialTax()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("tobacco", BigDecimal.valueOf(500.0), 1, "RES").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(857.5);
 	    assertEquals(true,received.compareTo(expected)==0);		
@@ -107,6 +112,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPriceUnknowState()
 	{
+	    controller=new MainController(new MainServiceImpl());
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "ANOTHER").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(607.5);
 	    assertEquals(true,received.compareTo(expected)==0);

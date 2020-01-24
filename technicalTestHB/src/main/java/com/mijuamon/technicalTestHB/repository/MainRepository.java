@@ -1,7 +1,6 @@
 package com.mijuamon.technicalTestHB.repository;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.util.ResourceUtils;
 
 import com.mijuamon.technicalTestHB.model.Discount;
 import com.mijuamon.technicalTestHB.model.Discounts;
@@ -66,7 +64,7 @@ public class MainRepository{
 	
 	public List<SpecialTax> getSpecialTaxes()
 	{
-		if(taxes == null)
+		if(specialTaxes == null)
 		{
 			readXMLSpecialTaxes();
 		}
@@ -74,7 +72,7 @@ public class MainRepository{
 	
 	public List<Discount> getDiscounts	()
 	{
-		if(taxes == null)
+		if(discounts == null)
 		{
 			readXMLDiscounts();
 		}
