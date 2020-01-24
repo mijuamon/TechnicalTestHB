@@ -1,22 +1,22 @@
 <discounts>
-	<dicount>
+	<discount>
 		<orderValue>1000</orderValue>
 		<percentage>0.03</percentage>
-	</dicount>
-	<dicount>
+	</discount>
+	<discount>
 		<orderValue>2000</orderValue>
 		<percentage>0.07</percentage>
-	</dicount>
-	<dicount>
+	</discount>
+	<discount>
 		<orderValue>5000</orderValue>
 		<percentage>0.15</percentage>
-	</dicount>
-	<dicount>
+	</discount>
+	<discount>
 		<orderValue>7500</orderValue>
 		<percentage>0.19</percentage>
-	</dicount>
-	<dicount>
+	</discount>
+	<discount>
 		<orderValue>10000</orderValue>
 		<percentage>0.25</percentage>
-	</dicount>
+	</discount>
 </discounts>

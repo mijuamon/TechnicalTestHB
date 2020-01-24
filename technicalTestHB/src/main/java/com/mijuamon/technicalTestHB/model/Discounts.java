@@ -1,35 +1,36 @@
 package com.mijuamon.technicalTestHB.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name="discounts")
 public class Discounts {
 	
-	private  Integer orderValue;
-	private double percentage;
-	
+	@XmlElement(name="discount", type=Discount.class)
+	private List<Discount> discounts = new ArrayList<>();
+
 	
 	public Discounts() {
 		super();
 	}
-	
-	public Discounts(Integer orderValue, double percentage) {
+
+	public Discounts(List<Discount> discounts) {
 		super();
-		this.orderValue = orderValue;
-		this.percentage = percentage;
+		this.discounts = discounts;
 	}
-	
-	public Integer getOrderValue() {
-		return orderValue;
+
+	public List<Discount> getDiscounts() {
+		return discounts;
 	}
-	
-	public void setOrderValue(Integer orderValue) {
-		this.orderValue = orderValue;
-	}
-	
-	public double getPercentage() {
-		return percentage;
-	}
-	
-	public void setPercentage(double percentage) {
-		this.percentage = percentage;
+
+	public void setDiscounts(List<Discount> discounts) {
+		this.discounts = discounts;
 	}
 	
 	
