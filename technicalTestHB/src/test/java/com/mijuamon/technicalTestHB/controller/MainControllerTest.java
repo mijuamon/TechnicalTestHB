@@ -74,7 +74,18 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice5()
 	{
-		assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(12000.0), 1, "TER").getPrice().compareTo(BigDecimal.valueOf(9450.0))==0);
+	    assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(12000.0), 1, "TER").getPrice().compareTo(BigDecimal.valueOf(9450.0))==0);
+	    
+	}		
+	
+	/**
+	 * Test with ticket price with special tax
+	 * 
+	 */
+	@Test
+	public void testGetPrice6()
+	{
+		assertEquals(true,controller.getPrice("tobacco", BigDecimal.valueOf(500.0), 1, "RES").getPrice().compareTo(BigDecimal.valueOf(857.5))==0);
 		
 	}		
 
