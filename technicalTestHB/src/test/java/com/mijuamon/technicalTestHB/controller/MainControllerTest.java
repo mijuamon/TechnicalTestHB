@@ -92,7 +92,7 @@ public class MainControllerTest {
 	 * 
 	 */
 	@Test
-	public void testGetPrice6()
+	public void testGetPriceSpecialTax()
 	{
 	    BigDecimal received=controller.getPrice("tobacco", BigDecimal.valueOf(500.0), 1, "RES").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(857.5);
@@ -105,7 +105,7 @@ public class MainControllerTest {
 	 * 
 	 */
 	@Test
-	public void testGetPrice7()
+	public void testGetPriceUnknowState()
 	{
 	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "ANOTHER").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(607.5);

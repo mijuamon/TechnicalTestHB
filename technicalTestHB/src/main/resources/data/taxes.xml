@@ -3,25 +3,30 @@
 		<state>BAL</state>
 		<description>Baleares</description>
 		<localTax>0.183</localTax>
+		<defaultTax>false</defaultTax>
 	</tax>
 	<tax>
 		<state>CAN</state>
 		<description>Canarias</description>
 		<localTax>0.047</localTax>
+		<defaultTax>false</defaultTax>
 	</tax>
 	<tax>
 		<state>CYN</state>
 		<description>Ceuta y melilla</description>
 		<localTax>0.081</localTax>
+		<defaultTax>false</defaultTax>
 	</tax>
 	<tax>
 		<state>TER</state>
 		<description>Teruel</description>
 		<localTax>0.05</localTax>
+		<defaultTax>false</defaultTax>
 	</tax>
 	<tax>
 		<state>RES</state>
 		<description>Resto</description>
 		<localTax>0.215</localTax>
+		<defaultTax>true</defaultTax>
 	</tax>
 </taxes>

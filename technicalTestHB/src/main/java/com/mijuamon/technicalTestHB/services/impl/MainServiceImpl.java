@@ -33,14 +33,20 @@ public class MainServiceImpl implements MainService {
 		 BigDecimal discountedPrice=BigDecimal.valueOf(getDiscount(discounts, totalPrice)).multiply(totalPrice);
 		 totalPrice=totalPrice.subtract(discountedPrice);
 		 
-		 Tax selectedTax=taxes.stream().filter(t->t.getState().equals(state)).findFirst().get();	
-		 SpecialTax selectedSpecialTax=specialTaxes.stream().filter(t->t.getDescription().contentEquals(description)).findFirst().orElse(new SpecialTax("none", 0.0));
-		 
-		 BigDecimal taxesPrice =BigDecimal.valueOf(selectedTax.getLocalTax()).multiply(totalPrice).add(BigDecimal.valueOf(selectedSpecialTax.getTax()).multiply(totalPrice));
+		 BigDecimal taxesPrice = getTaxesPrice(description, state, taxes, specialTaxes, totalPrice);
 		 
 		 totalPrice=totalPrice.add(taxesPrice);		
 		
 		 return totalPrice;
+	}
+
+	private BigDecimal getTaxesPrice(String description, String state, List<Tax> taxes,
+		List<SpecialTax> specialTaxes, BigDecimal totalPrice) {
+	    Tax selectedTax=taxes.stream().filter(t->t.getState().equals(state)).findFirst().orElse(taxes.stream().filter(x->x.isDefaultTax()).findFirst().get());
+	     SpecialTax selectedSpecialTax=specialTaxes.stream().filter(t->t.getDescription().contentEquals(description)).findFirst().orElse(new SpecialTax("none", 0.0));
+	     
+	     BigDecimal taxesPrice =BigDecimal.valueOf(selectedTax.getLocalTax()).multiply(totalPrice).add(BigDecimal.valueOf(selectedSpecialTax.getTax()).multiply(totalPrice));
+	    return taxesPrice;
 	}
 
 	private double getDiscount(List<Discount> discounts, BigDecimal totalPrice) {
