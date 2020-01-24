@@ -30,7 +30,9 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice1()
 	{
-	    assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "RES").getPrice().compareTo(BigDecimal.valueOf(607.5))==0);
+	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "RES").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(607.5);
+	    assertEquals(true,received.compareTo(expected)==0);
 	    
 	}		
 	
@@ -41,8 +43,9 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice2()
 	{
-	    assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(1500.0), 1, "BAL").getPrice().compareTo(BigDecimal.valueOf(1721.265))==0);
-	    
+	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(1500.0), 1, "BAL").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(1721.265);
+	    assertEquals(true,received.compareTo(expected)==0);	    
 	}		
 	
 	/**
@@ -52,7 +55,9 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice3()
 	{
-	    assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(3000.0), 2, "CAN").getPrice().compareTo(BigDecimal.valueOf(5339.7))==0);
+	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(3000.0), 2, "CAN").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(5339.7);
+	    assertEquals(true,received.compareTo(expected)==0);
 	    
 	}		
 	
@@ -63,7 +68,9 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice4()
 	{
-	    assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(1900.0), 4, "CYN").getPrice().compareTo(BigDecimal.valueOf(6654.636))==0);
+	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(1900.0), 4, "CYN").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(6654.636);
+	    assertEquals(true,received.compareTo(expected)==0);
 	    
 	}		
 	
@@ -74,7 +81,9 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice5()
 	{
-	    assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(12000.0), 1, "TER").getPrice().compareTo(BigDecimal.valueOf(9450.0))==0);
+	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(12000.0), 1, "TER").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(9450.0);
+	    assertEquals(true,received.compareTo(expected)==0);
 	    
 	}		
 	
@@ -85,8 +94,9 @@ public class MainControllerTest {
 	@Test
 	public void testGetPrice6()
 	{
-		assertEquals(true,controller.getPrice("tobacco", BigDecimal.valueOf(500.0), 1, "RES").getPrice().compareTo(BigDecimal.valueOf(857.5))==0);
-		
+	    BigDecimal received=controller.getPrice("tobacco", BigDecimal.valueOf(500.0), 1, "RES").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(857.5);
+	    assertEquals(true,received.compareTo(expected)==0);		
 	}		
 
 }

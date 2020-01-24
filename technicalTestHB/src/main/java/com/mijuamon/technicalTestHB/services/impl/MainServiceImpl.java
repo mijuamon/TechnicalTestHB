@@ -33,11 +33,12 @@ public class MainServiceImpl implements MainService {
 		 BigDecimal discountedPrice=BigDecimal.valueOf(getDiscount(discounts, totalPrice)).multiply(totalPrice);
 		 totalPrice=totalPrice.subtract(discountedPrice);
 		 
-		 Tax selectedTax=taxes.stream().filter(t->t.getState().equals(state)).findFirst().get();		 
-		 totalPrice=totalPrice.add(totalPrice.multiply(BigDecimal.valueOf(selectedTax.getLocalTax())));
+		 Tax selectedTax=taxes.stream().filter(t->t.getState().equals(state)).findFirst().get();	
+		 SpecialTax selectedSpecialTax=specialTaxes.stream().filter(t->t.getDescription().contentEquals(description)).findFirst().orElse(new SpecialTax("none", 0.0));
 		 
-		 SpecialTax selectedSpecialTax=specialTaxes.stream().filter(t->t.getDescription()==description).findFirst().orElse(new SpecialTax("none", 0.0));
-		 totalPrice=totalPrice.add(totalPrice.multiply(BigDecimal.valueOf(selectedSpecialTax.getTax()))); 
+		 BigDecimal taxesPrice =BigDecimal.valueOf(selectedTax.getLocalTax()).multiply(totalPrice).add(BigDecimal.valueOf(selectedSpecialTax.getTax()).multiply(totalPrice));
+		 
+		 totalPrice=totalPrice.add(taxesPrice);		
 		
 		 return totalPrice;
 	}
