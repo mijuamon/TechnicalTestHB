@@ -97,6 +97,20 @@ public class MainControllerTest {
 	    BigDecimal received=controller.getPrice("tobacco", BigDecimal.valueOf(500.0), 1, "RES").getPrice();
 	    BigDecimal expected=BigDecimal.valueOf(857.5);
 	    assertEquals(true,received.compareTo(expected)==0);		
-	}		
+	}
+	
+	
+	/**
+	 * Test with unknow state
+	 * 
+	 */
+	@Test
+	public void testGetPrice7()
+	{
+	    BigDecimal received=controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "ANOTHER").getPrice();
+	    BigDecimal expected=BigDecimal.valueOf(607.5);
+	    assertEquals(true,received.compareTo(expected)==0);
+	    
+	}	
 
 }
