@@ -1,24 +1,26 @@
 package com.mijuamon.technicalTestHB.controller;
 
 
-import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 
+import org.apache.catalina.core.ApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {MainController.class})
+@SpringBootTest
 public class MainControllerTest {
-	
+	  
 	@Autowired
-	@Qualifier("MainController")
+	@Qualifier("mainController")
 	private MainController controller;
 	
 	/**
@@ -28,7 +30,7 @@ public class MainControllerTest {
 	@Test
 	public void testGetPriceRES()
 	{
-		assertEquals(BigDecimal.valueOf(607.5),controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "RES").getPrice());
+		assertEquals(true,controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "RES").getPrice().compareTo(BigDecimal.valueOf(607.5))==0);
 		
 	}		
 
