@@ -29,17 +29,8 @@ public class MainServiceImpl implements MainService {
 		 
 		 BigDecimal totalPrice=price;
 		 totalPrice=totalPrice.multiply(BigDecimal.valueOf(numberOfItems));
-		 
-		 double discount = 0;
-		 for(Discount d:discounts)
-		 {
-			 if(totalPrice.compareTo(BigDecimal.valueOf(d.getOrderValue()))>=0)
-			 {
-				 discount=d.getPercentage();
-			 }
-		 }
-		 
-		 BigDecimal discountedPrice=BigDecimal.valueOf(discount).multiply(totalPrice);
+		 		 
+		 BigDecimal discountedPrice=BigDecimal.valueOf(getDiscount(discounts, totalPrice)).multiply(totalPrice);
 		 totalPrice=totalPrice.subtract(discountedPrice);
 		 
 		 Tax selectedTax=taxes.stream().filter(t->t.getState().equals(state)).findFirst().get();		 
@@ -49,6 +40,18 @@ public class MainServiceImpl implements MainService {
 		 totalPrice=totalPrice.add(totalPrice.multiply(BigDecimal.valueOf(selectedSpecialTax.getTax()))); 
 		
 		 return totalPrice;
+	}
+
+	private double getDiscount(List<Discount> discounts, BigDecimal totalPrice) {
+	    double discount = 0;
+	     for(Discount d:discounts)
+	     {
+	    	 if(totalPrice.compareTo(BigDecimal.valueOf(d.getOrderValue()))>=0)
+	    	 {
+	    		 discount=d.getPercentage();
+	    	 }
+	     }
+	    return discount;
 	}
 
 }
