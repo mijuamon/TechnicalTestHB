@@ -21,11 +21,15 @@ public class MainControllerTest {
 	@Qualifier("MainController")
 	private MainController controller;
 	
+	/**
+	 * Test with ticket price < 1000 in state RES
+	 * 
+	 */
 	@Test
 	public void testGetPriceRES()
 	{
-		 assertEquals(BigDecimal.valueOf(1215.0),controller.getPrice("", BigDecimal.valueOf(1000.0), 1, "RES").getPrice());
-
-	}	
+		assertEquals(BigDecimal.valueOf(607.5),controller.getPrice("toy", BigDecimal.valueOf(500.0), 1, "RES").getPrice());
+		
+	}		
 
 }
